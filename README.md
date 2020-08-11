@@ -1,72 +1,72 @@
-# Recuperacao de senha
+# Password recovery
 
 **RF**
 
-- O usuario deve poder recuperar sua senha informando o seu e-mail;
-- O usuario deve receber um email com instrucoes de recuperacao de senha;
-- O usuario deve poder resetar sua senha;
+- The user must be able to recover his password informing his e-mail;
+- The user must receive an email with password recovery instructions;
+- The user must be able to reset his password;
 
 **RNF**
 
-- Utilizar Mailtrap para testar envios em ambiente de dev;
-- Utilizar Amazon SES para envios em producao;
-- O envio de e-mails deve acontecer em segundo plano (background job);
+- Use Mailtrap to test shipments in a dev environment;
+- Use Amazon SES for production shipments;
+- E-mails should be sent in the background (background job);
 
 **RN**
 
-- O link enviado por email para resetar senha deve expirar em 2h;
-- O usuario precisa confirmar a nova senha ao resetar;
+- The link sent by email to reset password must expire in 2h;
+- The user needs to confirm the new password when resetting;
 
-# Atualizacao do perfil
+# Profile update
 
 **RF**
 
-- o Usuario deve poder atualizar seu nome, email e senha;
+- the User must be able to update his name, email and password;
 
 **RN**
 
-- O usuario nao pode alterar seu email para um email ja utilizado;
-- Para atualizar sua senha, o usuario deve informar a senha antiga;
-- Para atualizar sua senha, o usuario precisa confirmar a nova senha;
+- The user cannot change his email to an email already used;
+- To update your password, the user must inform the old password;
+- To update your password, the user needs to confirm the new password;
 
 
 
-# Painel do prestador
+# Provider panel
 
 **RF**
 
-- O prestador deve poder listar seus agendamentos de um dia especifico;
-- O prestador deve receber uma notificacao sempre que houver um novo agendamento;
-- O prestador deve poder visualizar as notificacoes nao lidas;
+- The provider must be able to list their schedules for a specific day;
+- The provider must receive a notification whenever there is a new appointment;
+- The provider must be able to view unread notifications;
 
 **RNF**
 
-- Os agendamentos do prestador no dia devem ser armazenados em cache;
-- As notificacoes do prestador devem ser armazenadas no MongoDB
-- As notificacoes do prestador devem ser enviadas em tempo-real utilizando Socket.io;
+- The provider's schedules for the day must be stored in cache;
+- The provider's notifications must be stored in MongoDB
+- The provider's notifications must be sent in real time using Socket.io;
 
 **RN**
 
-- A notificacao deve ter um status de lida ou nao lida para que o prestador possa controlar;
+- The notification must have a read or unread status for the provider to control;
 
 
-# Agendamento de servicos
+# Service scheduling
 
 **RF**
 
-- O usuario deve poder listar todos os prestadores de servico cadastrados;
-- O usuario deve poder listar os dias de um mes com pelo menos um horario disponivel de um prestador;
-- O usuario deve poder listar horarios disponiveis em um dia especifico de um prestador;
-- O usuario deve poder realizar um novo agendamento com o prestador;
+- The user must be able to list all registered service providers;
+- The user must be able to list the days of a month with at least one available time from a provider;
+- The user must be able to list available times on a specific day of a provider;
+- The user must be able to make a new appointment with the provider;
 
 **RNF**
 
-- A listagem de prestadores deve ser armazenada em cache;
+- The list of providers must be cached;
 
 **RN**
 
-- Cada agendamento deve durar 1h exatamente;
-- Os agendamentos devem estar disponiveis entre 8h as 18h (primeiro as 8h, ultimo as 17h);
-- O usuario nao pode agendar em um horario ja ocupado;
-- O usuario nao pode agendar em um horario que ja passou;
-- O usuario nao pode agendar servicos com ele mesmo;
+- Each appointment must last exactly 1 hour;
+- Appointments must be available between 8 am and 6 pm (first at 8 am, last at 5 pm);
+- The user cannot schedule at a busy time;
+- The user cannot schedule an appointment that has already passed;
+- The user cannot schedule services with himself;
