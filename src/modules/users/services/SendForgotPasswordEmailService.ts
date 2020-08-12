@@ -3,7 +3,6 @@ import IMailProvider from '@shared/container/providers/MailProvider/models/IMail
 import AppError from '@shared/errors/AppError';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IUserTokensRepository from '../repositories/IUserTokensRepository';
-// import User from '../infra/typeorm/entities/User';
 
 interface IRequest {
   email: string;
@@ -29,9 +28,12 @@ class SendForgotPasswordEmailService {
       throw new AppError('User does not exists.');
     }
 
-    await this.userTokensRepository.generate(user.id);
+    const { token } = await this.userTokensRepository.generate(user.id);
 
-    this.mailProvider.sendMail(email, 'Password recovery request received.');
+    await this.mailProvider.sendMail(
+      email,
+      `Password recovery request received: ${token}`
+    );
   }
 }
 
