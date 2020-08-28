@@ -6,4 +6,3 @@ build/
 .env.dev
 .env.production
 dist
-ormconfig.json
