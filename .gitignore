@@ -3,4 +3,7 @@ tmp/*
 !tmp/.gitkeep
 build/
 .env
+.env.dev
+.env.production
+dist
 ormconfig.json
